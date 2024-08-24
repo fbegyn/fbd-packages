@@ -1,0 +1,25 @@
+name: "blackbox_exporter"
+arch: "${ARCH}"
+platform: "linux"
+version: "${VERSION}"
+release: 1
+section: "default"
+priority: "extra"
+maintainer: "Francis Begyn <francis@begyn.be>"
+description: |
+  blackbox monitoring tool for prometheus
+vendor: "prometheus"
+homepage: "https://github.com/$ORG/blackbox_exporter"
+license: "Apache license 2"
+contents:
+  - src: ${ROOT}/units/blackbox_exporter.service
+    dst: /etc/systemd/system/blackbox_exporter.service
+  - src: ./blackbox_exporter
+    dst: /usr/sbin/local/blackbox_exporter
+  - src: ./blackbox.yml
+    dst: /etc/blackbox_exporter/blackbox.yml
+    type: config|noreplace
+scripts:
+  postinstall: ${SCRIPTDIR}/postinstall.sh
+  preremove: ${SCRIPTDIR}/preremove.sh
+  postremove: ${ROOT}/scripts/postremove.sh

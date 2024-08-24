@@ -1,0 +1,11 @@
+[Unit]
+Description=A server that accepts collectd stats via HTTP POST and exports them via HTTP for Prometheus consumption
+
+[Service]
+ExecStart=/usr/sbin/local/collectd_exporter
+Restart=always
+RestartSec=30
+Type=simple
+
+[Install]
+WantedBy=multi-user.target

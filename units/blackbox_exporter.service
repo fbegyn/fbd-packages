@@ -1,0 +1,11 @@
+[Unit]
+Description=Blackbox prober exporter
+
+[Service]
+ExecStart=/usr/sbin/local/blackbox_exporter --config.file /etc/blackbox_exporter/blackbox.yml
+Restart=always
+RestartSec=30
+Type=simple
+
+[Install]
+WantedBy=multi-user.target

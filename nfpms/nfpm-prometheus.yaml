@@ -1,0 +1,27 @@
+name: "prometheus"
+arch: "${ARCH}"
+platform: "linux"
+version: "${VERSION}"
+release: 1
+section: "default"
+priority: "extra"
+maintainer: "Francis Begyn <francis@begyn.be>"
+description: |
+  prometheus monitoring TSDB
+vendor: "prometheus"
+homepage: "https://github.com/prometheus/prometheus"
+license: "Apache License 2"
+contents:
+  - src: ${ROOT}/units/prometheus.service
+    dst: /etc/systemd/system/prometheus.service
+  - src: ./prometheus
+    dst: /usr/sbin/local/prometheus
+  - src: ./promtool
+    dst: /usr/sbin/local/promtool
+  - src: ./prometheus.yml
+    dst: /etc/prometheus/prometheus.yml
+    type: config|noreplace
+scripts:
+  postinstall: ${SCRIPTDIR}/postinstall.sh
+  preremove: ${SCRIPTDIR}/preremove.sh
+  postremove: ${ROOT}/scripts/postremove.sh

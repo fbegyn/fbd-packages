@@ -1,0 +1,27 @@
+name: "alertmanager"
+arch: "${ARCH}"
+platform: "linux"
+version: "${VERSION}"
+release: 1
+section: "default"
+priority: "extra"
+maintainer: "Francis Begyn <francis@begyn.be>"
+description: |
+  alert handling and router for prometheus
+vendor: "prometheus"
+homepage: "https://github.com/prometheus/alertmanager"
+license: "Apache License 2"
+contents:
+  - src: ${ROOT}/units/alertmanager.service
+    dst: /etc/systemd/system/alertmanager.service
+  - src: ./alertmanager
+    dst: /usr/sbin/local/alertmanager
+  - src: ./amtool
+    dst: /usr/sbin/local/amtool
+  - src: ./alertmanager.yml
+    dst: /etc/alertmanager/alertmanager.yml
+    type: config|noreplace
+scripts:
+  postinstall: ${SCRIPTDIR}/postinstall.sh
+  preremove: ${SCRIPTDIR}/preremove.sh
+  postremove: ${ROOT}/scripts/postremove.sh

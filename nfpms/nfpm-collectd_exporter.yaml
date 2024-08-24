@@ -1,0 +1,22 @@
+name: "collectd_exporter"
+arch: "${ARCH}"
+platform: "linux"
+version: "${VERSION}"
+release: 1
+section: "default"
+priority: "extra"
+maintainer: "Francis Begyn <francis@begyn.be>"
+description: |
+  collectd exporter for Prometheus
+vendor: "prometheus"
+homepage: "https://github.com/prometheus/collectd_exporter"
+license: "Apache license 2"
+contents:
+  - src: ${ROOT}/units/collectd_exporter.service
+    dst: /etc/systemd/system/collectd_exporter.service
+  - src: ./collectd_exporter
+    dst: /usr/sbin/local/collectd_exporter
+scripts:
+  postinstall: ${SCRIPTDIR}/postinstall.sh
+  preremove: ${SCRIPTDIR}/preremove.sh
+  postremove: ${ROOT}/scripts/postremove.sh

@@ -1,0 +1,22 @@
+name: "node_exporter"
+arch: "${ARCH}"
+platform: "linux"
+version: "${VERSION}"
+release: 1
+section: "default"
+priority: "extra"
+maintainer: "Francis Begyn <francis@begyn.be>"
+description: |
+  Exporter for machine metrics
+vendor: "prometheus"
+homepage: "https://github.com/prometheus/node_exporter"
+license: "Apache License 2"
+contents:
+  - src: ${ROOT}/units/node_exporter.service
+    dst: /etc/systemd/system/node_exporter.service
+  - src: ./node_exporter
+    dst: /usr/sbin/local/node_exporter
+scripts:
+  postinstall: ${SCRIPTDIR}/postinstall.sh
+  preremove: ${SCRIPTDIR}/preremove.sh
+  postremove: ${ROOT}/scripts/postremove.sh

@@ -1,0 +1,11 @@
+[Unit]
+Description=Prometheus alerting system
+
+[Service]
+ExecStart=/usr/sbin/local/alertmanager --config.file /etc/alertmanager/alertmanager.yml
+Restart=always
+RestartSec=30
+Type=simple
+
+[Install]
+WantedBy=multi-user.target

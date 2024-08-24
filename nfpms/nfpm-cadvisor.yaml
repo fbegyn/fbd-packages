@@ -1,0 +1,22 @@
+name: "cadvisor"
+arch: "${ARCH}"
+platform: "linux"
+version: "${VERSION}"
+release: 1
+section: "default"
+priority: "extra"
+maintainer: "Francis Begyn <francis@begyn.be>"
+description: |
+  Exporter for container metrics
+vendor: "google"
+homepage: "https://github.com/google/cadvisor"
+license: "Apache License 2"
+contents:
+  - src: ${ROOT}/units/cadvisor.service
+    dst: /etc/systemd/system/cadvisor.service
+  - src: ./cadvisor-${VERSION}-linux-${ARCH}
+    dst: /usr/sbin/local/cadvisor
+scripts:
+  postinstall: ${SCRIPTDIR}/postinstall.sh
+  preremove: ${SCRIPTDIR}/preremove.sh
+  postremove: ${ROOT}/scripts/postremove.sh

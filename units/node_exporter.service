@@ -1,0 +1,11 @@
+[Unit]
+Description=Exporter for machine metrics
+
+[Service]
+ExecStart=/usr/sbin/local/node_exporter
+Restart=always
+RestartSec=30
+Type=simple
+
+[Install]
+WantedBy=multi-user.target

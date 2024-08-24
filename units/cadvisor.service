@@ -1,0 +1,11 @@
+[Unit]
+Description=Container monitoring system with prometheus support
+
+[Service]
+ExecStart=/usr/sbin/local/cadvisor
+Restart=always
+RestartSec=30
+Type=simple
+
+[Install]
+WantedBy=multi-user.target
