@@ -4,4 +4,4 @@ https://github.com/prometheus/snmp_exporter /releases/download/${TAG}/${NAME}-${
 https://github.com/prometheus/blackbox_exporter /releases/download/${TAG}/${NAME}-${VERSION}.linux-${ARCH}.tar.gz
 https://github.com/prometheus/collectd_exporter /releases/download/${TAG}/${NAME}-${VERSION}.linux-${ARCH}.tar.gz
 https://github.com/prometheus/alertmanager /releases/download/${TAG}/${NAME}-${VERSION}.linux-${ARCH}.tar.gz
-https://github.com/prometheus/prometheus /releases/download/${TAG}/${NAME}-${VERSION}.linux-${ARCH}.tar.gz v2.53.0
+https://github.com/prometheus/prometheus /releases/download/${TAG}/${NAME}-${VERSION}.linux-${ARCH}.tar.gz v2.54.1
