@@ -10,8 +10,13 @@ file into their own packages and make them available at the root of the working 
 NOTICE: by the nature of shell scripts, this repository is quite sensitive to breakage. If it breaks,
 you get to keep all the pieces. I provide no garantees over this repo.
 
+## repositories
+
+For apt, please use aptly.repo.begyn.be
+For rpm, please use rpm.repo.begyn.be
+
 ## Future work
 
 [ ] development of self contained go binary
-[ ] setup public apt repository to host the packages
-[ ] setup public rpm repository to host the packages
+[x] setup public apt repository to host the packages
+[x] setup public rpm repository to host the packages

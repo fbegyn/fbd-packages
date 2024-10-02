@@ -33,6 +33,7 @@
           name = "fbd-packages";
           packages = [
             pkgs.aptly
+            pkgs.createrepo_c
             pkgs.nfpm
             pkgs.git
             pkgs.nix
